@@ -1,0 +1,8 @@
+<?php
+$counter = 1;
+while ($counter <= 10) {
+	echo "$counter times 2 is ".($counter*2)."<br>";
+	$counter++;
+	# code...
+}
+?>

@@ -1,0 +1,25 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title> Form with check boxes</title>
+	</head>
+
+	<body>
+		<form action ="send_formwithselect.php" method="POST">
+			
+		<p><strong>Name: </strong><br>
+		<input type="text" name="user"></p>
+		<p><strong>Select Some Products:</strong><br></p>
+		<input type="checkbox" name="products[]" value = "Sonic Screwdriver">Sonic Screwdriver</input>
+		<input type="checkbox" name="products[]" value = "Tricorder">Tricorder</input>
+		<input type="checkbox" name="products[]" value = "ORAC AI">ORAC AI</input>
+		<input type="checkbox" name="products[]" value = "HAL 2000">HAL 2000</input>
+		</select>
+		<p><input type="submit" value="send"></p>
+
+		</form>
+
+	</body>
+</html>
+

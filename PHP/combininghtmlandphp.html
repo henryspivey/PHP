@@ -1,0 +1,13 @@
+<!doctype html>
+
+<html>
+	<head><title>An HTML form that calls itself </title></head>
+
+	<body>
+		<form action="<?php echo $_SERVER[PHP_SELF];?>" method="POST">
+		<p><strong>Type your guess here:</strong><input type="text" name="guess"></p>
+		<p><input type="submit" value="submit your guess"></p>
+		</form>
+		</body>
+
+	</html>

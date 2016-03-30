@@ -1,0 +1,5 @@
+Server: Apache.  This header field contains information about the underlying software used by the origin server.
+Cache-Control: max-age=344. Cache-Control specifies parameters for the cache. In this case, the max-age directive indicates that the client is willing to accept a response not older than 344 seconds.  
+Expires: Thu, 04 Feb 2016 04:00:33 GMT.  This header field gives the date and time after which the response is considered expired.  
+Content-Length: 28241. This header field specifies the size of a valid entity body. 
+Connection: keep-alive.  Connection specifies desired options for a particular connection.  In this case the connection is not immediately closed after the response so keep-alive is used. 
