@@ -1,2 +1,2 @@
 HW3 Image rating app
-authored by: Henry Spiveyfasdfasdfasdf
+authored by: Henry Spivey
