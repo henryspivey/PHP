@@ -1,23 +1,22 @@
 <?php
 
+	include("Config.php");
 
-	$username = "root"; // user must have privileges to create DB
-	$password = "root";
-	$conn = new mysqli("127.0.0.1", $username, $password);
+	$conn = new mysqli(HOST, USER, PASS, '');
 	// Check connection
 	if ($conn->connect_error) {
 	    die("Connection failed: " . $conn->connect_error);
 	}
 	echo "Connected successfully\n";
 	// Create database
-	$create = "CREATE DATABASE HW3";
+	$create = "CREATE DATABASE " . DB;
 	if ($conn -> query($create) === TRUE) {
 	    echo "Database created successfully\n";
 	} else {
 	    echo "Error creating database: " . $conn -> error . "\n";
 	}
 	// Switch to databsae
-	$conn -> select_db('HW3');
+	$conn -> select_db(DB);
 	// Query for creating table Users
 	$userTable = "CREATE TABLE users (
 	  id INT(6) AUTO_INCREMENT PRIMARY KEY,
