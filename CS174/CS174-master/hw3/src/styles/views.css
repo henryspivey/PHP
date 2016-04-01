@@ -1,0 +1,32 @@
+/**
+ *COPYRIGHT (C) 2016 Tyler Jones. All Rights Reserved.
+ * The stylesheet for all views in Image Rating System
+ * Solves CS174 Hw3
+ * @author Tyler Jones
+*/
+h1 {
+    /*text-align:center;*/
+}
+.centered {
+    text-align:center;
+}
+.buttonLink {
+    display:inline-block;
+    height:3em;
+    width:8em;
+    float:right;
+    text-decoration: underline;
+    border-style:dashed;
+    background-color:yellow;
+    cursor: pointer;
+}
+.signedIn {
+    display:inline-block;
+    width:6em;
+    text-align:center;
+    float:right;
+    border-style:dashed;
+    border-color:gray;
+    background-color:yellow;
+}
+
