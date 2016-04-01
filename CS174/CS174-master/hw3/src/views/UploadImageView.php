@@ -1,13 +1,13 @@
 <?php
 
 namespace soloRider\hw3\views;
+
+use solorider\hw3\views\elements as e;
 require_once "View.php";
+require_once "elements/UploadElement.php";
 
 class UploadImageView extends View {
 
-/**
-* Draw the web page to the browser
-*/
   public function render($data) {
     ?>
     <!DOCTYPE html>
@@ -27,6 +27,7 @@ class UploadImageView extends View {
             <input id="captionUpload" type="text" name="imageCaption" maxlength="100"><br>
             <input type="submit" class="buttonLink" name="uploadImage" value="Upload"/>            
         </form>
+        
       </body>
     </html>
     <?php

@@ -2,6 +2,9 @@
 
 namespace soloRider\hw3\views;
 require_once "View.php";
+require_once "src/configs/Config.php";
+use soloRider\hw3\config as config;
+
 class ImageRatingView extends View {
 
   public function render($data) {
@@ -45,6 +48,37 @@ class ImageRatingView extends View {
     }
     }
     ?>
+    <h2>Recent Items</h2>
+      <?php 
+        // Create connection
+        //echo config\Config::HOST; how to use namespace constants properly :)
+        $conn = new \mysqli(config\Config::HOST, config\Config::USER, config\Config::PWD, config\Config::DB);
+        // Check connection
+        if (!$conn) {
+          die("Connection failed: " . mysqli_connect_error());
+        } 
+        if($conn) {
+          $retrieve = "SELECT * FROM Images";
+          if (!$conn->query($retrieve) === TRUE) {
+              echo "Error: " . $conn->error . "<br/>";
+          } else {
+            
+            $result = $conn->query($retrieve);
+
+            if ($result->num_rows > 0) {
+                // output data of each row
+                while($row = $result->fetch_assoc()) {
+                    echo "id: " . $row["title"]. " - " . $row["user_id"]. " - " . $row["caption"]. "<br>";
+                }
+            } else {
+                echo "0 results";
+            }
+            $conn->close();
+
+          }
+        }
+        ?>
+    <h2>Popular Items</h2>
     </body>
     </html>
     <?php

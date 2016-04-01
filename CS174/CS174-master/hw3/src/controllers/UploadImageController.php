@@ -54,11 +54,20 @@ class UploadImageController extends Controller {
                    }
                    $conn->close();
                } else {
-                   echo "There was an error uploading your file " . "<br/>";
-                   print_r($_FILES);
+                   echo "There was an error uploading your file " . "<br/> " . "<form class='centered' method='post' action='index.php'>
+                        <input type='submit' id='uploadLink' name='uploadImage' value='Upload an Image'></form> <br>
+                        <form method='post' action='index.php'>
+                            <input type='submit' class='buttonLink' value='Go to home page'/>
+                        </form>
+                        ";
+          
                }
            } else { 
-            echo "Whoops! There was a problem uploading your image.";
+            echo "There was a problem uploading the image." .  "<form class='centered' method='post' action='index.php'> <input type='submit' id='uploadLink' name='uploadImage' value='Upload an Image'></form>
+            <br>
+            <form method='post' action='index.php'>
+                <input type='submit' class='buttonLink' value='Go to home page'/>
+            </form>";
            }
        } else {
         // this will only be called when the user doesn't enter anything
