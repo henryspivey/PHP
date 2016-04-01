@@ -58,7 +58,7 @@ class ImageRatingView extends View {
           die("Connection failed: " . mysqli_connect_error());
         } 
         if($conn) {
-          $retrieve = "SELECT * FROM Images";
+          $retrieve = "SELECT * FROM Images ORDER BY 'upload_time' DESC LIMIT 3";
           if (!$conn->query($retrieve) === TRUE) {
               echo "Error: " . $conn->error . "<br/>";
           } else {
@@ -67,9 +67,18 @@ class ImageRatingView extends View {
 
             if ($result->num_rows > 0) {
                 // output data of each row
+              	echo "<div class='flex-container'>";
                 while($row = $result->fetch_assoc()) {
-                    echo "id: " . $row["title"]. " - " . $row["user_id"]. " - " . $row["caption"]. "<br>";
+                		echo "<div class='image-container'>";
+                		$title = $row["title"];
+                		$user = $row["user_id"];
+                		$caption = $row["caption"];
+                		echo "<img src='src/resources/$title' height='300' width='200'/>";
+                		echo "<p>Submitted by: " . $user . "</p>";
+                		echo "<p>Caption: " . $caption . "</p>"; 
+                    echo "</div>";
                 }
+                echo "</div>";
             } else {
                 echo "0 results";
             }
