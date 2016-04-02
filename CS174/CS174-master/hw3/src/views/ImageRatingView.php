@@ -77,6 +77,27 @@ class ImageRatingView extends View {
                 		echo "<p>Submitted by: " . $user . "</p>";
                 		echo "<p>Caption: " . $caption . "</p>"; 
                     echo "</div>";
+                    echo "<form action='index.php' method='post'>
+														<label for='Rating'>Rate this image: </label>
+														<select name='rating'>
+															<option value='1'>1</option>
+															<option value='2'>2</option>
+															<option value='3'>3</option>
+															<option value='4'>4</option>
+															<option value='5'>5</option>
+														</select>
+														<input type='submit' value='Rate this!' />
+													</form>";
+										if(isset($_REQUEST['rating'])){
+											$rating = $_REQUEST['rating'];											
+											$sql = "UPDATE Images SET rating = '$rating' WHERE title = '$title'";
+											
+											if (!$conn->query($sql) === TRUE) {
+											    echo "Error: " . $conn->error . "<br/>";
+											} else {
+											  $updateImages = $conn->query($sql);
+											}
+										}
                 }
                 echo "</div>";
             } else {
