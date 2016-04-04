@@ -40,6 +40,8 @@ class ImageRatingView extends View {
               		<img src="<?php echo "src/resources/$data[TITLE]"?>" height='300' width='200'/>
               		<p>Submitted by:<?php echo $data['USER'] ?></p>
               		<p>Caption: <?php echo $data['CAPTION'] ?></p> 
+              		<?php if ($data['RATING']) { ?>
+              		<p>Rating: <?php echo $data['RATING']; }?></p>
                   </div>
                   <form action='index.php' method='post'>
 													<label for='Rating'>Rate <?php echo $data['TITLE'] ?> </label>

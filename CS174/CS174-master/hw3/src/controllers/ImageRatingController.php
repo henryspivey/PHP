@@ -38,6 +38,10 @@ class ImageRatingController extends Controller {
 	        		$data['TITLE'] = $title;
 	        		$data['CAPTION'] = $caption;
 
+	        		if($row['rating']) {
+	        			$data['RATING'] = $row['rating'];
+	        		}
+
 	          }              
 	        } else {
 	          echo "0 results";
@@ -57,7 +61,7 @@ class ImageRatingController extends Controller {
 
 				if (isset($_REQUEST['imageToRate'])) {
 					$titleOfImageToUpdate = $_REQUEST['imageToRate'];
-					
+
 					$sql = "UPDATE Images SET rating = '$rating' WHERE title = '$titleOfImageToUpdate'";
 					if (!$conn->query($sql) === TRUE) {
 					    echo "Error: " . $conn->error . "<br/>";
