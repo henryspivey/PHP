@@ -31,34 +31,35 @@ class ImageRatingView extends View {
           </form>
       <?php } ?>
 
-    <h2>Recent Items </h2>
+    <h2>Recent Items</h2>
     	<?php if ($data['retrieve']) { ?>
-              <?php  if($data['retrieve']->num_rows > 0) { ?>
-            	<div class='flex-container'>              
-              		<div class='image-container'>
-              		<?php if($_SESSION['username']) { ?>
-              		<img src="<?php echo "src/resources/$data[TITLE]"?>" height='300' width='200'/>
-              		<p>Submitted by:<?php echo $data['USER'] ?></p>
-              		<p>Caption: <?php echo $data['CAPTION'] ?></p> 
-              		<?php if ($data['RATING']) { ?>
-              		<p>Rating: <?php echo $data['RATING']; }?></p>
-                  </div>
-                  <form action='index.php' method='post'>
-													<label for='Rating'>Rate <?php echo $data['TITLE'] ?> </label>
-													<select name='rating'>
-														<option value='1'>1</option>
-														<option value='2'>2</option>
-														<option value='3'>3</option>
-														<option value='4'>4</option>
-														<option value='5'>5</option>
-													</select>
-													<button type='submit' name="imageToRate" value=<?php echo $data['TITLE']?> >Rate</button>
-												</form>
+            	<div class='flex-container'>     
+            	<?php for ($i=0; $i < $data['NUMROWS']; $i++) { ?>
+								<div class='image-container'>
+									<?php if($_SESSION['username']) { ?>
+
+									<img src="<?php echo "src/resources/" . $data['ALLIMAGES'][$i]['TITLE']?>" height='300' width='200'/>
+									<p>Submitted by:<?php echo $data['ALLIMAGES'][$i]['USER'] ?></p>
+									<p>Caption: <?php echo $data['ALLIMAGES'][$i]['CAPTION'] ?></p> 
+									<?php if (isset($data['ALLIMAGES'][$i]['RATING'])) { ?>
+									<p>Rating: <?php echo $data['ALLIMAGES'][$i]['RATING']; }?></p>
+									<p> <?php if(!$data['ALLIMAGES'][$i]['RATING']) {?> Not rated yet <?php } ?></p>
+								</div>
+              <?php } ?>
+							<form action='index.php' method='post'>
+								<label for='Rating'>Rate <?php echo $data['ALLIMAGES'][$i]['TITLE'] ?> </label>
+								<select name='rating'>
+									<option value='1'>1</option>
+									<option value='2'>2</option>
+									<option value='3'>3</option>
+									<option value='4'>4</option>
+									<option value='5'>5</option>
+								</select>
+								<button type='submit' name="imageToRate" value=<?php echo $data['ALLIMAGES'][$i]['TITLE']?> >Rate</button>
+							</form>
 									
-              <?php } 
-              	
+              <?php }             	
               }
-            }
               ?>
               </div>
     <h2>Popular Items</h2>

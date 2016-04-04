@@ -26,22 +26,29 @@ class ImageRatingController extends Controller {
         if (!$conn->query($retrieve) === TRUE) {
             echo "Error: " . $conn->error . "<br/>";
         } else {
-
+        	$tmpCount = 0;
 	        $data['retrieve'] = $conn->query($retrieve);
 	        if ($data['retrieve']->num_rows > 0) {
 	          // output data of each row            	
-	          while($row = $data['retrieve']->fetch_assoc()) {              		
+	          while($row = $data['retrieve']->fetch_assoc()) {   
+	          			
 	        		$title = $row["title"];
 	        		$user = $row["user_id"];
 	        		$caption = $row["caption"];
-	        		$data['USER'] = $user;
-	        		$data['TITLE'] = $title;
-	        		$data['CAPTION'] = $caption;
+	        		$newData[$tmpCount]['USER'] = $user;
+	        		$newData[$tmpCount]['TITLE'] = $title;
+	        		$newData[$tmpCount]['CAPTION'] = $caption;
+	        		$newData[$tmpCount]['RATING'] = $row['rating'];
 
-	        		if($row['rating']) {
-	        			$data['RATING'] = $row['rating'];
-	        		}
+ 
+	        		// $data['USER'] = $user;
+	        		// $data['TITLE'] = $title;
+	        		// $data['CAPTION'] = $caption;
+	        		// $data['RATING'] = $row['rating'];
+	        		$data['NUMROWS'] = $data['retrieve']->num_rows;
+	        		$data['ALLIMAGES'] = $newData;
 
+	        		$tmpCount++;        
 	          }              
 	        } else {
 	          echo "0 results";
