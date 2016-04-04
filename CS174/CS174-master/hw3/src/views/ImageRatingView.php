@@ -50,7 +50,7 @@ class ImageRatingView extends View {
 														<option value='4'>4</option>
 														<option value='5'>5</option>
 													</select>
-													<input type='submit' value='Rate this!' />
+													<button type='submit' name="imageToRate" value=<?php echo $data['TITLE']?> >Rate</button>
 												</form>
 									
               <?php } 

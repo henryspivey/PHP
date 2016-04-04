@@ -20,14 +20,14 @@ if($conn->query($sql) === TRUE) {
 }
 //Create the USER table
 $conn->select_db(config\Config::DB);
-// $userTable = "CREATE TABLE USER(
-//     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-//     email VARCHAR(50) NOT NULL,
-//     password VARCHAR(32) NOT NULL,
-//     fileName VARCHAR(30),
-//     caption VARCHAR(100),
-//     rating INT(1),
-//     timeUploaded TIMESTAMP)";
+$userTable = "CREATE TABLE USER(
+    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(50) NOT NULL,
+    password VARCHAR(32) NOT NULL,
+    fileName VARCHAR(30),
+    caption VARCHAR(100),
+    rating INT(1),
+    timeUploaded TIMESTAMP)";
 
 //Query for creating table Images
 $imageTable = "CREATE TABLE Images (
@@ -38,13 +38,13 @@ $imageTable = "CREATE TABLE Images (
   rating TINYINT
   )";
 
-// $ratingTable = "CREATE TABLE ratings(
-// 	id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-// 	image_title VARCHAR(30),
-// 	rating TINYINT
-// )";
+$ratingTable = "CREATE TABLE ratings(
+	id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	image_title VARCHAR(30),
+	rating TINYINT
+)";
 
-if ($conn->query($imageTable) === TRUE  ) {
+if ($conn->query($userTable) === TRUE && $conn->query($imageTable) === TRUE  && $conn->query($ratingTable) === TRUE) {
     echo "Tables created \n";
 } else {
     echo "Error creating tables: " . $conn->error . "\n";

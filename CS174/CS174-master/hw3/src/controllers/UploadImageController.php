@@ -19,6 +19,7 @@ class UploadImageController extends Controller {
         if (isset($_FILES['imageFile'])) {
         
            $uploadfile = $uploaddir . basename($_FILES['imageFile']['name']);
+           $uploadfile = str_replace(' ', '', $uploadfile);
            $imageFileType = pathinfo($uploadfile,PATHINFO_EXTENSION);
            // Check if file already exists
            if (file_exists($uploadfile)) {
@@ -41,7 +42,9 @@ class UploadImageController extends Controller {
                    echo "File uploaded!" . "<br/>";
                    /* ADDING IMAGE INFO TO DATABASE */
                    $conn = $this->connect();
+
                    $title = $_FILES['imageFile']['name'];
+                   $title = str_replace(' ', '', $title);
                    $user_id = $_SESSION["username"];
                    $caption = $_POST['imageCaption'];
                    $date = date("Y-m-d H:i:s");
