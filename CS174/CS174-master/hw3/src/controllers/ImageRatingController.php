@@ -61,12 +61,13 @@ class ImageRatingController extends Controller {
 					$getImage = "SELECT rating FROM Image WHERE title = '$title'";
 					$getNumberOfRatings = "SELECT * FROM ratings WHERE image_title = '$title'";
 					if($result=mysqli_query($conn, $getNumberOfRatings)) {
-					$numberOfRatings = mysqli_num_rows($result);
-					// loop through each rating
-					if($numberOfRatings > 0) {
+						
+						// loop through each rating
+						if($result->num_rows > 0) {
 
 						while($getRatings = mysqli_fetch_array($result)) {
 							$rating = $getRatings['rating'];
+							$numberOfRatings = $getRatings['ratings'];
 							$runningTotal = $runningTotal + $rating;
 						}
 
