@@ -1,9 +1,9 @@
 <?php
 
-namespace soloRider\hw3\views;
+namespace spivotron\hw3\views;
 require_once "View.php";
 require_once "src/configs/Config.php";
-use soloRider\hw3\config as config;
+use spivotron\hw3\config as config;
 
 class ImageRatingView extends View {
 

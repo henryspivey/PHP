@@ -1,7 +1,7 @@
 <?php
 
 //This is currently set up for the default settings.
-namespace soloRider\hw3\config;
+namespace spivotron\hw3\config;
 class Config {
     const DB = 'HW3';
     const USER = "root";

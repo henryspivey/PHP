@@ -1,8 +1,8 @@
 <?php
 
-namespace soloRider\hw3\views;
+namespace spivotron\hw3\views;
 
-use solorider\hw3\views\elements as e;
+use spivotron\hw3\views\elements as e;
 require_once "View.php";
 require_once "elements/UploadElement.php";
 

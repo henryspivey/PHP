@@ -1,7 +1,7 @@
 <?php
-namespace soloRider\hw3\views\elements;
+namespace spivotron\hw3\views\elements;
 
-use soloRider\hw3\controllers as c;
+use spivotron\hw3\controllers as c;
 require_once "src/controllers/Controller.php";
 
 

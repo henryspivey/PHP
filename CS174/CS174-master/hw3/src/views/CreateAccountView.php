@@ -1,6 +1,6 @@
 <?php
 
-namespace soloRider\hw3\views;
+namespace spivotron\hw3\views;
 require_once "View.php";
 class CreateAccountView extends View {
     /**

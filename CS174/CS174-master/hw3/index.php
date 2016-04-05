@@ -1,19 +1,19 @@
 <?php
 
-namespace soloRider\hw3;
+namespace spivotron\hw3;
 require_once "src/controllers/ImageRatingController.php";
 require_once "src/controllers/SignInController.php";
 require_once "src/controllers/UploadImageController.php";
 require_once "src/controllers/CreateAccountController.php";
 
 // defines for various namespaces
-define("NS_BASE", "soloRider\\hw3\\");
-define(NS_BASE . "NS_CONTROLLERS", "soloRider\\hw3\\controllers\\");
-define(NS_BASE . "NS_VIEWS", "soloRider\\hw3\\views\\");
-define(NS_BASE . "NS_ELEMENTS", "soloRider\\hw3\\views\\elements\\");
-define(NS_BASE . "NS_HELPERS", "soloRider\\hw3\\views\\helpers\\");
-define(NS_BASE . "NS_MODELS", "soloRider\\hw3\\models\\");
-define(NS_BASE . "NS_CONFIGS", "soloRider\\hw3\\configs\\");
+define("NS_BASE", "spivotron\\hw3\\");
+define(NS_BASE . "NS_CONTROLLERS", "spivotron\\hw3\\controllers\\");
+define(NS_BASE . "NS_VIEWS", "spivotron\\hw3\\views\\");
+define(NS_BASE . "NS_ELEMENTS", "spivotron\\hw3\\views\\elements\\");
+define(NS_BASE . "NS_HELPERS", "spivotron\\hw3\\views\\helpers\\");
+define(NS_BASE . "NS_MODELS", "spivotron\\hw3\\models\\");
+define(NS_BASE . "NS_CONFIGS", "spivotron\\hw3\\configs\\");
 
 $allowed_controllers = ["ImageRating", "UploadImage", "SignIn", "CreateAccount"];
 //determine controller for request

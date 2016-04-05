@@ -1,7 +1,7 @@
 <?php
 
-namespace soloRider\hw3\controllers;
-use soloRider\hw3 as B;
+namespace spivotron\hw3\controllers;
+use spivotron\hw3 as B;
 
 abstract class Controller {
     /**

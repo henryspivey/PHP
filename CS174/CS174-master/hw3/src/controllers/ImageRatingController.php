@@ -1,10 +1,10 @@
 <?php
 
-namespace soloRider\hw3\controllers;
+namespace spivotron\hw3\controllers;
 require_once "Controller.php";
 require_once "auth.php";
 require_once "src/configs/Config.php";
-use soloRider\hw3\config as config;
+use spivotron\hw3\config as config;
 
 class ImageRatingController extends Controller {
 

@@ -3,7 +3,7 @@
 
 //required for the constants
 require_once "Config.php";
-use soloRider\hw3\config as config;
+use spivotron\hw3\config as config;
 
 //Establish connection to database
 $conn = new mysqli(config\Config::HOST, config\Config::USER, config\Config::PWD, "");

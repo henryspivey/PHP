@@ -1,7 +1,7 @@
 <?php
 
 
-namespace solorider\hw3\views\elements;
+namespace spivotron\hw3\views\elements;
 require_once "Element.php";
 
 class SignInHelper extends Element {

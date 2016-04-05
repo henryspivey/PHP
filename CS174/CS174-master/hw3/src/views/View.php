@@ -1,6 +1,6 @@
 <?php
 
-namespace soloRider\hw3\views;
+namespace spivotron\hw3\views;
 
 abstract class View {
     /**
