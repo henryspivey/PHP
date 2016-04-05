@@ -41,6 +41,7 @@ $imageTable = "CREATE TABLE Images (
 $ratingTable = "CREATE TABLE ratings(
 	id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 	image_title VARCHAR(30),
+  rated_by VARCHAR(30) DEFAULT '0',
 	rating TINYINT
 )";
 

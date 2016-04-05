@@ -33,7 +33,8 @@ class ImageRatingView extends View {
 
     <h2>Recent Items</h2>
     	<?php if ($data['retrieve']) { ?>
-            	<div class='flex-container'>     
+            	<div class='flex-container'>
+              <?php if (isset($data['NUMROWS'])) { ?>  
             	<?php for ($i=0; $i < $data['NUMROWS']; $i++) { ?>
 								<div class='image-container'>
 									<?php if($_SESSION['username']) { ?>
@@ -58,7 +59,10 @@ class ImageRatingView extends View {
 								<button type='submit' name="imageToRate" value=<?php echo $data['ALLIMAGES'][$i]['TITLE']?> >Rate</button>
 							</form>
 									
-              <?php }             	
+              <?php }  
+                } else {
+                  echo "0 results";
+                }        	
               }
               ?>
               </div>
