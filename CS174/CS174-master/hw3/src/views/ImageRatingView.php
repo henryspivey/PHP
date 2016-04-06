@@ -18,21 +18,21 @@ class ImageRatingView extends View {
       </head>
     <body>
       <h1 class="centered"><img src="./src/resources/logo.png" alt="Image Rating" /></h1>
-      <?php if(!$_SESSION['username']) { ?>
+      <?php if(!isset($_SESSION['username'])) { ?>
           <form method="post" action="index.php">
               <input type="submit" class="buttonLink" name="signIn" value="Sign-in/Sign-up"/>
           </form>
       <?php } elseif($_SESSION['username']) { ?>
           <p>Welcome <?php echo $_SESSION['username']; ?>!</p>
       <?php } ?>
-      <?php if($_SESSION['username']) { ?>
+      <?php if(isset($_SESSION['username'])) { ?>
           <form class="centered" method="post" action="index.php">
             <input type="submit" id="uploadLink" name="uploadImage" value="Upload an Image">
           </form>
       <?php } ?>
 
     <h2>Recent Items</h2>
-    	<?php if ($data['retrieve']) { ?>
+    	<?php if ($data['retrieve'] and isset($_SESSION["username"])) { ?>
             	<div class='flex-container'>
               <?php if (isset($data['NUMROWS'])) { ?>  
             	<?php for ($i=0; $i < $data['NUMROWS']; $i++) { ?>
@@ -63,6 +63,8 @@ class ImageRatingView extends View {
                 } else {
                   echo "0 results";
                 }        	
+              } else {
+                echo "Sign in to see cool photos";
               }
               ?>
               </div>
