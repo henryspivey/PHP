@@ -10,7 +10,7 @@ class ImageRatingController extends Controller {
   function processRequest() {
 
       $data = [];
-      
+      session_start();
       // code for gathering photos from db
       ini_set('display_errors',1);
       error_reporting(E_ALL);

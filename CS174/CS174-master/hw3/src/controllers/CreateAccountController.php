@@ -26,13 +26,15 @@ class CreateAccountController extends Controller {
             $email = stripslashes($email);
             $query = "INSERT into users (username, password, email) VALUES ('$username', '".md5($password)."', '$email')";
             $result = $conn -> query($query);
+            echo "Hello2";
             if($result){
                 echo "<form method='post' action='index.php'><h3>You are registered successfully.</h3><br/><input type='submit' class='buttonLink' name='signIn' value='Sign In'/></form>";
-
             } else {
                 echo "something went wrong" . $query . " " . $conn->error;
             }
+            $conn->close();
           } else {
+          	echo "Hello";
             
             $data['username'] = $this->sanitize("username","string");
             $data['email'] = $this->sanitize("email", "email");

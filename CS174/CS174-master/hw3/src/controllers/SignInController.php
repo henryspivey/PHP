@@ -21,6 +21,7 @@ class SignInController extends Controller {
             $query = "SELECT * FROM users WHERE username='$username' and password='".md5($password)."'";
             $result = mysqli_query($conn, $query);
             $rows = mysqli_num_rows($result);
+            // echo $rows;
             if($rows==1){
                 $_SESSION['username'] = $username;
                 header("Location: index.php"); // Redirect user to index.php

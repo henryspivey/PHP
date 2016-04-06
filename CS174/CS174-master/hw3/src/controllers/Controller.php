@@ -3,6 +3,9 @@
 namespace spivotron\hw3\controllers;
 use spivotron\hw3 as B;
 
+require_once "src/configs/Config.php";
+use spivotron\hw3\config as config;
+
 abstract class Controller {
     /**
      * This method should be overriden to handle requests to a controller
@@ -88,10 +91,11 @@ abstract class Controller {
     }
 
     public function connect() {
-      $servername = "127.0.0.1";
-      $username = "root";
-      $password = "root";
-      $dbname = "HW3";
+     
+      $servername = config\Config::HOST;
+      $username = config\Config::USER;
+      $password = config\Config::PWD;
+      $dbname = config\Config::DB;
       // Create connection
       $conn = new \mysqli("$servername", "$username", "$password", "$dbname");
       // Check connection
