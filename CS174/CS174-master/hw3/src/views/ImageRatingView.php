@@ -17,7 +17,7 @@ class ImageRatingView extends View {
         <link rel="stylesheet" href="src/views/css/style.css" />
       </head>
     <body>
-      <h1 class="centered"><img src="./src/resources/logo.png" alt="Image Rating" /></h1>
+      <h1 class="centered">CS174 Image Rating</h1>
       <?php if(!isset($_SESSION['username'])) { ?>
           <form method="post" action="index.php">
               <input type="submit" class="buttonLink" name="signIn" value="Sign-in/Sign-up"/>

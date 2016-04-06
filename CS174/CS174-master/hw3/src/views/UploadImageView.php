@@ -19,7 +19,7 @@ class UploadImageView extends View {
           <meta charset="utf-8"/>
       </head>
       <body>
-        <h1 class="centered"><img src="./src/resources/logo.png" alt="Image Rating" /></h1>
+        <h1 class="centered">CS174 Image Rating</h1>
         <form class="centered" id="fileUploadForm" method="post" action="index.php" enctype="multipart/form-data">
             <label for="fileUpload">Select a File to Upload:</label>
             <input id="imageFile" type="file" name="imageFile"><br>

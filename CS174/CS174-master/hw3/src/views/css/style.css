@@ -35,3 +35,7 @@ input[type='submit']:hover {background-color: #80c248;}
 .image-container p {
 	margin: auto 0;
 }
+
+.centered {
+  text-align: center;
+}
