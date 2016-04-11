@@ -43,7 +43,7 @@ class ImageRatingView extends View {
 									<p>Submitted by:<?php echo $data['ALLIMAGES'][$i]['USER'] ?></p>
 									<p>Caption: <?php echo $data['ALLIMAGES'][$i]['CAPTION'] ?></p> 
 									<?php if (isset($data['ALLIMAGES'][$i]['RATING'])) { ?>
-									<p>Rating: <?php echo $data['ALLIMAGES'][$i]['RATING']; }?></p>
+									<p>Average Rating: <?php echo $data['ALLIMAGES'][$i]['RATING']; }?></p>
 									<p> <?php if(!$data['ALLIMAGES'][$i]['RATING']) {?> Not rated yet <?php } ?></p>
 								</div>
               <?php } ?>
