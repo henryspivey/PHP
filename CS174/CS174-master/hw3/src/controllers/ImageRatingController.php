@@ -48,6 +48,33 @@ class ImageRatingController extends Controller {
 	          }              
 	        } 
         }
+        $popular = "SELECT * FROM Images ORDER BY 'upload_time' DESC LIMIT 10";
+        if (!$conn->query($popular) === TRUE) {
+            echo "Error: " . $conn->error . "<br/>";
+        } else {
+        	
+	        $data['popular'] = $conn->query($popular);
+	        if ($data['popular']->num_rows > 0) {
+	          // output data of each row            	
+	          while($row = $data['popular']->fetch_assoc()) {   
+	          			
+	        		$title = $row["title"];
+	        		$user = $row["user_id"];
+	        		$caption = $row["caption"];
+
+	        		$newPopularData[$tmpCount]['USER'] = $user;
+	        		$newPopularData[$tmpCount]['TITLE'] = $title;
+	        		$newPopularData[$tmpCount]['CAPTION'] = $caption;
+	        		
+
+	        		$data['NUMROWS_POPULAR'] = $data['retrieve']->num_rows;
+	        		$data['ALLIMAGES_POPULAR'] = $newData;
+
+	        		$tmpCount++;        
+	          }              
+	        } 
+        }
+
       
 			if(isset($_REQUEST['rating'])){
 				$currentRating = $_REQUEST['rating'];	

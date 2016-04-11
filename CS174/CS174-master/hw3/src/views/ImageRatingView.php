@@ -33,42 +33,65 @@ class ImageRatingView extends View {
 
     <h2>Recent Items</h2>
     	<?php if ($data['retrieve'] and isset($_SESSION["username"])) { ?>
-            	<div class='flex-container'>
-              <?php if (isset($data['NUMROWS'])) { ?>  
-            	<?php for ($i=0; $i < $data['NUMROWS']; $i++) { ?>
-								<div class='image-container'>
-									<?php if($_SESSION['username']) { ?>
+    	<div class='flex-container'>
+      <?php if (isset($data['NUMROWS'])) { ?>  
+    	<?php for ($i=0; $i < $data['NUMROWS']; $i++) { ?>
+				<div class='image-container'>
+					<?php if($_SESSION['username']) { ?>
 
-									<img src="<?php echo "src/resources/" . $data['ALLIMAGES'][$i]['TITLE']?>" height='300' width='200'/>
-									<p>Submitted by:<?php echo $data['ALLIMAGES'][$i]['USER'] ?></p>
-									<p>Caption: <?php echo $data['ALLIMAGES'][$i]['CAPTION'] ?></p> 
-									<?php if (isset($data['ALLIMAGES'][$i]['RATING'])) { ?>
-									<p>Average Rating: <?php echo $data['ALLIMAGES'][$i]['RATING']; }?></p>
-									<p> <?php if(!$data['ALLIMAGES'][$i]['RATING']) {?> Not rated yet <?php } ?></p>
-								</div>
-              <?php } ?>
-							<form action='index.php' method='post'>
-								<label for='Rating'>Rate <?php echo $data['ALLIMAGES'][$i]['TITLE'] ?> </label>
-								<select name='rating'>
-									<option value='1'>1</option>
-									<option value='2'>2</option>
-									<option value='3'>3</option>
-									<option value='4'>4</option>
-									<option value='5'>5</option>
-								</select>
-								<button type='submit' name="imageToRate" value=<?php echo $data['ALLIMAGES'][$i]['TITLE']?> >Rate</button>
-							</form>
-									
-              <?php }  
-                } else {
-                  echo "0 results";
-                }        	
-              } else {
-                echo "Sign in to see cool photos";
-              }
-              ?>
-              </div>
+					<img src="<?php echo "src/resources/" . $data['ALLIMAGES'][$i]['TITLE']?>" height='300' width='200'/>
+					<p>Submitted by:<?php echo $data['ALLIMAGES'][$i]['USER'] ?></p>
+					<p>Caption: <?php echo $data['ALLIMAGES'][$i]['CAPTION'] ?></p> 
+					<?php if (isset($data['ALLIMAGES'][$i]['RATING'])) { ?>
+					<p>Average Rating: <?php echo $data['ALLIMAGES'][$i]['RATING']; }?></p>
+					<p> <?php if(!$data['ALLIMAGES'][$i]['RATING']) {?> Not rated yet <?php } ?></p>
+				</div>
+      <?php } ?>
+			<form action='index.php' method='post'>
+				<label for='Rating'>Rate <?php echo $data['ALLIMAGES'][$i]['TITLE'] ?> </label>
+				<select name='rating'>
+					<option value='1'>1</option>
+					<option value='2'>2</option>
+					<option value='3'>3</option>
+					<option value='4'>4</option>
+					<option value='5'>5</option>
+				</select>
+				<button type='submit' name="imageToRate" value=<?php echo $data['ALLIMAGES'][$i]['TITLE']?> >Rate</button>
+			</form>
+					
+      <?php }  
+        } else {
+          echo "0 results";
+        }        	
+      } else {
+        echo "Sign in to see cool photos";
+      }
+    ?>
+    </div>
     <h2>Popular Items</h2>
+    <?php if ($data['popular'] and isset($_SESSION["username"])) { ?>
+    	<div class='flex-container'>
+      <?php if (isset($data['NUMROWS_POPULAR'])) { ?>  
+    	<?php for ($i=0; $i < $data['NUMROWS_POPULAR']; $i++) { ?>
+				<div class='image-container'>
+					<?php if($_SESSION['username']) { ?>
+
+					<img src="<?php echo "src/resources/" . $data['ALLIMAGES_POPULAR'][$i]['TITLE']?>" height='300' width='200'/>
+					<p>Submitted by:<?php echo $data['ALLIMAGES_POPULAR'][$i]['USER'] ?></p>
+					<p>Caption: <?php echo $data['ALLIMAGES_POPULAR'][$i]['CAPTION'] ?></p> 
+				</div>
+      <?php } ?>
+		
+					
+      <?php }  
+        } else {
+          echo "0 results";
+        }        	
+      } else {
+        echo "Sign in to see cool photos";
+      }
+      ?>
+      </div>
     </body>
     </html>
     <?php
